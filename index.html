@@ -1,63 +1,82 @@
 <html lang="pl_PL">
-  <head>
-    <title>Hello, world!</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- 
-    <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  </head>
-  <body>
-
-<div class="row justify-content-center align-items-center h-50">
-<div class="col-md-6">
-<div class="card">
-<header class="card-header">
-	<h4 class="card-title mt-2">Rejestracja</h4>
-</header>
-<form>
- <div class="cotainer">
-  <div class="form-row p-2">
-    <div class="form-group col-md-6 p-2">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" placeholder="Imię">
-    </div>
-    <div class="form-group col-md-6 p-2">
-      <label for="lastName">Nazwisko</label>
-      <input type="text" class="form-control" id="lastName" placeholder="Nazwisko">
-    </div>
-  </div>
-  <div class="form-group p-2">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" placeholder="Email">
-  </div>
-  <div class="form-group p-2">
-    <label for="login">Login</label>
-    <input type="text" class="form-control" id="login" placeholder="Login">
-  </div>
- <div class="form-row p-2">
-    <div class="form-group col-md-6 p-2">
-      <label for="password">Hasło</label>
-      <input type="password" class="form-control" id="password" placeholder="Hasło">
-    </div>
-    <div class="form-group col-md-6 p-2">
-      <label for="repeatPassword">Powtórz Hasło</label>
-      <input type="password" class="form-control" id="repeatPassword" placeholder="Powtórz Hasło">
-    </div>
-  </div>
-  </div>
-   <div class="d-flex flex-row-reverse "> 
-  <button type="submit" class="btn btn-primary">Zarejestruj</button>
-  </div>
-  </div>
-  </div>
-  </div>
-  
-</form>
-   
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5xlXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/uxl/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
+   <head>
+      <title>Hello, world!</title>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   </head>
+   <body onload="disableButton()">
+      <div class="row justify-content-center align-items-center h-100">
+         <div class="col-md-6">
+            <div class="card">
+               <header class="card-header" style="background-color: #3399FF;">   
+                  <p class="card-title mt-2 h4">Rejestracja</p>
+               </header>
+               <form  name= "form" class="main-form needs-validation" novalidate>
+                  <div class="cotainer">
+                     <div class="form-row p-2">
+                        <div class="form-group col-md-6 p-2">
+                           <label for="name">Name</label>
+                           <input type="text" onkeyup="checker()" name="name" class="form-control" id="name" placeholder="Name" required>
+                           <div class="invalid-feedback">Wpisz poprawne imie.</div>
+                        </div>
+                        <div class="form-group col-md-6 p-2">
+                           <label for="lastName">Nazwisko</label>
+                           <input type="text" onkeyup="checker()" class="form-control" id="lastName" placeholder="Nazwisko" required>
+                        </div>
+                     </div>
+                     <div class="form-group p-2">
+                        <label for="email">Email</label>
+                        <input type="text" onkeyup="checker()" class="form-control" id="email" name ="email" placeholder="Email" required>
+                     </div>
+                     <div class="form-group p-2">
+                        <label for="login">Login</label>
+                        <input type="text" onkeyup="checker()" class="form-control" id="login" placeholder="Login" required>
+                     </div>
+                     <div class="form-row p-2">
+                        <div class="form-group col-md-6 p-2">
+                           <label for="password">Hasło</label>
+                           <input type="password" onkeyup="checker()"  name="password" class="form-control" id="password" placeholder="Hasło" required>
+                        </div>
+                        <div class="form-group col-md-6 p-2">
+                           <label for="repeatPassword">Powtórz Hasło</label>
+                           <input type="password" onkeyup="checker()" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Powtórz Hasło" required>
+                        </div>
+                     </div>
+					 <div class="d-flex form-row justify-content-center" id="eightCharMessage" style=" font-size: 10pt;"></div>
+					 <div class="d-flex form-row justify-content-center" id="nameMessage" style=" font-size: 10pt;"></div>
+				 	 <div class="d-flex form-row justify-content-center" id="lastNameMessage" style=" font-size: 10pt;"></div>
+					 <div class="d-flex form-row justify-content-center" id="emailMessage" style=" font-size: 10pt;"></div>
+					 <div class="d-flex form-row justify-content-center" id="loginMessage" style=" font-size: 10pt;"></div>
+					 <div class="d-flex form-row justify-content-center" id="upperCaseMessage" style=" font-size: 10pt;"></div>
+					 <div class="d-flex form-row justify-content-center" id="numberMessage" style=" font-size: 10pt;"></div>
+					 <div class="d-flex form-row justify-content-center" id="lowerCaseMessage" style=" font-size: 10pt;"></div>
+					 <div class="d-flex form-row justify-content-center" id="passwordMessage" style=" font-size: 10pt;"></div>
+					 <div class="d-flex form-row justify-content-center" id="confirmPasswordMessage" style=" font-size: 10pt;"></div>
+					 <div class="d-flex flex-row-reverse p-2"> 
+						<button type="submit" id="submit" name="submit" class="btn btn-primary">Zarejestruj</button>
+					 </div>
+				 </div>
+            </div>
+         </div>
+      </div>
+      </form>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5xlXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/uxl/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="validate.js"></script>
+      <script>
+         var form=document.querySelector('.needs-validation');
+         
+         	form.addEventListener('submit',function(event){
+         		if(form.checkValidity()===false){
+         			event.preventDefault();
+         			event.stopPropagation();
+         		}
+         		form.classList.add('was-validated');
+         	})
+      </script>
+   </body>
 </html>
